@@ -10,8 +10,6 @@ var getElementsByClassName = function(className, node) {
   if (typeof node.classList !== 'undefined' && node.classList.contains(className)) {
     results.push(node);
   }
-  if (node.hasChildNodes()) {
-    node.childNodes.forEach((item) => results = results.concat(getElementsByClassName(className, item)));
-  }
+  node.childNodes.forEach((item) => results = results.concat(getElementsByClassName(className, item)));
   return results;
 };
