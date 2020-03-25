@@ -31,8 +31,9 @@ var stringifyArray = function(arr) {
 var stringifyObject = function(obj) {
   var tempArr = [];
   for (let key in obj) {
-    if (typeof obj[key] !== 'undefined' && typeof obj[key] !== 'function') {
-      tempArr.push('"' + key + '":' + stringifyJSON(obj[key]));
+    let value = stringifyJSON(obj[key]);
+    if (value) {
+      tempArr.push('"' + key + '":' + value);
     }
   }
   return '{' + tempArr.join(',') + '}';
